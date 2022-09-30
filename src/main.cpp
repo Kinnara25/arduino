@@ -57,13 +57,14 @@ void sensor1(){
         Serial.print("This just in ... ");  
         Serial.println(receivedChars);
         newData = false;
-        box.print(receivedChars);
-        //delay(1000);
+        
     }
     
     const char *next = receivedChars;
         //while(*next) {
-       // next++;
+          box.print(receivedChars);
+        delay(1000);
+       next++;
          }
          
         //box.print(receivedChars);}
@@ -72,7 +73,7 @@ void sensor1(){
 void loop() {
     recvWithEndMarker();
     sensor1();
-    //delay(2000);
+    delay(2000);
 
 }
 
