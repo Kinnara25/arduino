@@ -60,15 +60,13 @@ void sensor1(){
         box.print(receivedChars);
         //delay(1000);
     }
-    
-         }
-         
-       
+}
+        
 
 void loop() {
     recvWithEndMarker();
     sensor1();
-    //delay(2000);
+    delay(2000);
 
 }
 
