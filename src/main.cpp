@@ -61,13 +61,9 @@ void sensor1(){
         //delay(1000);
     }
     
-    const char *next = receivedChars;
-        //while(*next) {
-       // next++;
          }
          
-        //box.print(receivedChars);}
-
+       
 
 void loop() {
     recvWithEndMarker();
