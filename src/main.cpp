@@ -4,7 +4,7 @@
 #include "font/SystemFont5x7.h"
 #include "font/Arial_Black_16.h"
 
-const int WIDTH = 1; // jumlah panel led matrik yang digunakan
+const int WIDTH =2; // jumlah panel led matrik yang digunakan
 const uint8_t *FONT = Arial_Black_16;
 
 const byte numChars = 16;
@@ -43,37 +43,37 @@ void recvWithEndMarker() {
             }
         }
 
-
         else {
             receivedChars[ndx] = '\0'; // terminate the string
-            ndx = 0;
+            ndx =0;
             newData = true;
         }
     }
 }
+                                       
 
-
-void sensor1(){
+void sensor1(){ 
      if (newData == true) {
-        Serial.print("This just in ... ");
+        Serial.print("This just in ... ");  
         Serial.println(receivedChars);
-         
         newData = false;
+        box.print(receivedChars);
+        //delay(1000);
     }
     
     const char *next = receivedChars;
-        while(*next) {
-        box.print(*next);
-        delay(1000);
-        next++;
+        //while(*next) {
+       // next++;
          }
          
-        //box.print(receivedChars);
-}
+        //box.print(receivedChars);}
 
 
 void loop() {
     recvWithEndMarker();
     sensor1();
-    
+    //delay(2000);
+
 }
+
+
