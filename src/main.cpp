@@ -59,14 +59,10 @@ void sensor1(){
         newData = false;
         box.print(receivedChars);
         //delay(1000);
-    }
-    
-    const char *next = receivedChars;
-        //while(*next) {
-       // next++;
+     }
          }
          
-        //box.print(receivedChars);}
+       
 
 
 void loop() {
