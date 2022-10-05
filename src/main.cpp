@@ -2,19 +2,20 @@
 #include <SPI.h>
 #include <DMD2.h>
 #include "font/SystemFont5x7.h"
-#include "font/Arial_Black_16.h"
+#include "font/ArialRoundedMTBold16b.h"
 
 const int WIDTH =2; // jumlah panel led matrik yang digunakan
-const uint8_t *FONT = Arial_Black_16;
+const uint8_t *FONT =ArialRoundedMTBold16b;
 
-const byte numChars = 16;
+
+const byte numChars = 32;
 char receivedChars[numChars];   // an array to store the received data
 
 boolean newData = false;
 
 
 SoftDMD dmd(WIDTH,1); 
-DMD_TextBox box(dmd);
+DMD_TextBox box(dmd,5,0); //untuk mengatur jumlah panel yang kamu pakai
 
 
 
@@ -24,6 +25,7 @@ void setup() {
     dmd.setBrightness(255);
     dmd.selectFont(FONT);
     dmd.begin();
+   
 }
 
 
@@ -58,16 +60,16 @@ void sensor1(){
         Serial.println(receivedChars);
         newData = false;
         box.print(receivedChars);
-        //delay(1000);
+        
     }
 }
         
 
 void loop() {
+
     recvWithEndMarker();
     sensor1();
-    delay(2000);
+    //delay(2000);
 
+  
 }
-
-
