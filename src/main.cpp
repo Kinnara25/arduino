@@ -64,7 +64,7 @@ void sensor1(){
     }
 }
         
-
+    
 void loop() {
 
     recvWithEndMarker();
